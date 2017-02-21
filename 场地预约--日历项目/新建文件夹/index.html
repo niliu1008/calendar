@@ -1,0 +1,1375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>场地预约</title>
+	<link rel="stylesheet" type="text/css" href="css/styleaa.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript">
+
+	// 选项卡
+	window.onload = function(){
+			var tap1 = document.getElementById("tap1");
+			var tap1_li = tap1.getElementsByTagName("li");
+			var tap2 = document.getElementById("tap2");
+			var tap2_div = tap2.getElementsByTagName("div");
+
+			var len = tap1_li.length;
+
+			for (var i = 0; i < len; i++) {
+
+				tap1_li[i].index = i;
+
+				tap1_li[i].onclick = function(){
+					for (var i=0; i < len; i++){
+						tap1_li[i].className="pkg_date_single";
+						tap2_div[i].className="hidd";
+					};
+					tap1_li[this.index].className="pkg_date_single current";
+					tap2_div[this.index].className="";
+				};
+			}
+			$("#prev").click(function () {
+				var indexs=document.getElementsByClassName("pkg_date_single current")[0].index;
+				if(indexs==0){
+					indexs=7;
+				}
+				document.getElementsByClassName("pkg_date_single")[indexs-1].click();
+			});
+			$("#J_DateNext").click(function () {
+				var indexs=document.getElementsByClassName("pkg_date_single current")[0].index;
+				if(indexs==6){
+					indexs=-1;
+				}
+				document.getElementsByClassName("pkg_date_single")[indexs+1].click();
+			});
+		};
+
+
+
+	function tab(date,dNum){
+		var arr = date.split('-');
+		var fDay = [];
+		for(var i=(parseInt(arr[2])-dNum);i<=(parseInt(arr[2])+dNum);i++){
+			fDay.push(new Date(arr[0],arr[1]-1,i));
+		}
+		return fDay;
+	}
+//	alert(tab('2015-1-1',4));
+	</script>
+</head>
+<body>
+<div class="head"></div>
+
+<div class="container">
+<div style="width:600px;margin:0 auto;margin-top:30px;">
+			<form action="" style="margin-top:-30px;width:100%; float:left;margin-bottom:30px;">
+				<input type="text" value="学校名称" style="padding:7px 0 7px 7px;color:#999;margin-right:10px; width:240px;">
+
+				<!-- <input type="text" value="预约场地" style="padding:7px 0 7px 7px;color:#999;margin-right:10px;width:150px;"> -->
+				<input type="text" value="预约类型" style="padding:7px 0 7px 7px;color:#999;width:240px;">
+			</form>
+		</div>
+	<div>
+		<div class="main">
+			<div class="back">
+				<div class="left">
+					<img src="top.png" alt="" width="18" id="shang" title="上一页" onclick="fun(this)"/>
+					<div class="mid">
+						<span id="bian_nian">xxxx</span><br />
+						<span id="bian_yue">x</span><span>月</span><br />
+						<span id="now_time">xx:xx</span>
+					</div>
+					<img src="bottom.png" alt="" width="18" id="xia" title="下一页" onclick="fun(this)"/>
+				</div>
+				<div class="mian_top">
+					<span>一</span>
+					<span>二</span>
+					<span>三</span>
+					<span>四</span>
+					<span>五</span>
+					<span id="red">六</span>
+					<span id="red1">日</span>
+				</div>
+				<div id="day">
+					
+				</div>
+			</div>
+		</div>
+		<div class="adsie">
+		  <ul style="margin-bottom:50px;">
+		    	<li>
+		    	<input type="text" id="field_name" name="field_name" value="" size="50" placeholder="场地名" >
+		    	<a href="javascript:;">搜索</a></li>
+		    </ul>
+		    
+			<div class="le">
+			  
+			    <table class="p" border="0" cellspacing="0" cellpadding="0" width="" >
+					<tbody>
+						<tr class="at">
+							<th class="num">1</th>
+							<th class="ss">场地列表</th>
+							<th class="ss" style="background: #faaa4b; color:#fff;">规模</th>
+							<th class="ss" style="background: #faaa4b;color:#fff;">费用</th>
+							<th class="ss" style="background: #faaa4b;color:#fff;">备注</th>
+						</tr>
+						</tbody>
+					<tbody>
+						<tr class="at">
+							<th class="num">2</th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+						</tr>
+
+						<tr class="at">
+							<th class="num">3</th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+						</tr>
+						<tr class="at">
+							<th class="num">4</th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+						</tr>
+						<tr class="at">
+							<th class="num">5</th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+						</tr>
+
+						<tr class="at">
+							<th class="num">6</th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+						</tr>
+						<tr class="at">
+							<th class="num">7</th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+						</tr>
+						<tr class="at">
+							<th class="num">8</th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+						</tr>
+
+						<tr class="at">
+							<th class="num">9</th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+							<th class="ss"></th>
+						</tr>
+					</tbody>
+				</table>	
+		    </div>
+		</div>
+	</div>
+</div>
+<div>
+	<div class="menu">
+		<div class="lie">
+	        <div class="pkg_date_select clearfix">
+                <div class="pkg_date_prev" id="prev">
+                    <a href="javascript:;" id="J_DatePrev" class="" >
+                        <i class="icon"></i>
+                    </a>
+                </div>
+                <div id="J_DateWrap" class="pkg_date_list" style="">
+                    <ul id="tap1" class="clearfix" >
+						<li class="pkg_date_single current">
+							<a href="javascript:;" rel="nofollow"><strong class="news3">11-02</strong><span>周三</span></a>
+						</li class="pkg_date_single">
+						<li class="pkg_date_single">
+							<a href="javascript:;" rel="nofollow"><strong class="news2">11-03</strong><span>周四</span></a>
+						</li>
+						<li class="pkg_date_single">
+							<a href="javascript:;" rel="nofollow"><strong class="news1">11-04</strong><span>周五</span></a>
+						</li>	
+						<li class="pkg_date_single">
+							<a href="javascript:;" rel="nofollow"><strong class="news">11-05</strong><span>周六</span></a>
+						</li> 
+						<li class="pkg_date_single">
+							<a href="javascript:;" rel="nofollow"><strong class="news11">11-06</strong><span>周日</span></a>
+						</li>
+						<li  class="pkg_date_single">
+							<a href="javascript:;" rel="nofollow"><strong class="news22">11-07</strong><span>周一</span></a>
+						</li>
+						<li  class="pkg_date_single">
+							<a href="javascript:;" rel="nofollow"><strong class="news33">11-08</strong><span>周二</span>
+						</li>
+					</ul>
+                </div>
+                <div class="pkg_date_next" id="J_DateNext">
+                    <a href="javascript:;" class="hovered">
+                        <i class="icon"></i>
+                    </a>
+                </div>
+                <div class="pkg_date_group_mask"><i></i></div>
+            </div>
+		</div>
+		<div style="padding-bottom:30px;">
+			<div class="tap2" id="tap2">
+			<div class="tap2aa hidd" >
+				<table style="width:100%;border-collapse: collapse;">
+					<tr class="tab_a">
+						<th>日期</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">9:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">9:30</p>
+							<p>10:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">10:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">10:30</p>
+							<p>11:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">11:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">11:30</p>
+							<p>12:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">12:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">12:30</p>
+							<p>13:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">13:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">13:30</p>
+							<p>14:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">14:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">14:30</p>
+							<p>15:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">15:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">15:30</p>
+							<p>16:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">16:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">16:30</p>
+							<p>17:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">17:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">17:30</p>
+							<p>18:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">18:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">18:30</p>
+							<p>19:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<div class="tap2bb hidd"><table style="width:100%;border-collapse: collapse;">
+					<tr class="tab_a">
+						<th>日期</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">9:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">9:30</p>
+							<p>10:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">10:00</td>
+						<td width="110" height="40" algin="center" class="mfth">
+							<p style="border-bottom:1px dashed;">10:30</p>
+							<p>11:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">11:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">11:30</p>
+							<p>12:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">12:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">12:30</p>
+							<p>13:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">13:00</td>
+						<td width="110" height="40" algin="center" class="mfth">
+							<p style="border-bottom:1px dashed;">13:30</p>
+							<p>14:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">14:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">14:30</p>
+							<p>15:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">15:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">15:30</p>
+							<p>16:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">16:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">16:30</p>
+							<p>17:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">17:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">17:30</p>
+							<p>18:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">18:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">18:30</p>
+							<p>19:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table></div>
+			<div class="tap2bb hidd"><table style="width:100%;border-collapse: collapse;">
+					<tr class="tab_a">
+						<th>日期</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">9:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">9:30</p>
+							<p>10:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">10:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">10:30</p>
+							<p>11:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">11:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">11:30</p>
+							<p>12:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">12:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">12:30</p>
+							<p>13:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">13:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">13:30</p>
+							<p>14:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">14:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">14:30</p>
+							<p>15:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">15:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">15:30</p>
+							<p>16:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">16:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">16:30</p>
+							<p>17:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">17:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">17:30</p>
+							<p>18:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">18:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">18:30</p>
+							<p>19:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table></div>
+			<div class="tap2bb" ><table style="width:100%;border-collapse: collapse;">
+					<tr class="tab_a">
+						<th>日期</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">9:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">9:30</p>
+							<p>10:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">10:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">10:30</p>
+							<p>11:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">11:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">11:30</p>
+							<p>12:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">12:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">12:30</p>
+							<p>13:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">13:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">13:30</p>
+							<p>14:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">14:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">14:30</p>
+							<p>15:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">15:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">15:30</p>
+							<p>16:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">16:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">16:30</p>
+							<p>17:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">17:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">17:30</p>
+							<p>18:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">18:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">18:30</p>
+							<p>19:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table></div>
+			<div class="tap2bb hidd"><table style="width:100%;border-collapse: collapse;">
+					<tr class="tab_a">
+						<th>日期</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">9:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">9:30</p>
+							<p>10:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">10:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">10:30</p>
+							<p>11:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">11:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">11:30</p>
+							<p>12:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">12:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">12:30</p>
+							<p>13:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">13:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">13:30</p>
+							<p>14:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">14:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">14:30</p>
+							<p>15:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">15:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">15:30</p>
+							<p>16:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">16:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">16:30</p>
+							<p>17:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">17:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">17:30</p>
+							<p>18:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">18:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">18:30</p>
+							<p>19:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table></div>
+			<div class="tap2bb hidd"><table style="width:100%;border-collapse: collapse;">
+					<tr class="tab_a">
+						<th>日期</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">9:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">9:30</p>
+							<p>10:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">10:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">10:30</p>
+							<p>11:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">11:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">11:30</p>
+							<p>12:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">12:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">12:30</p>
+							<p>13:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">13:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">13:30</p>
+							<p>14:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">14:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">14:30</p>
+							<p>15:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">15:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">15:30</p>
+							<p>16:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">16:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">16:30</p>
+							<p>17:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">17:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">17:30</p>
+							<p>18:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">18:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">18:30</p>
+							<p>19:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table></div>
+			<div class="tap2bb hidd"><table style="width:100%;border-collapse: collapse;">
+					<tr class="tab_a">
+						<th>日期</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">9:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">9:30</p>
+							<p>10:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">10:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">10:30</p>
+							<p>11:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">11:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">11:30</p>
+							<p>12:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">12:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">12:30</p>
+							<p>13:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">13:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">13:30</p>
+							<p>14:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">14:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">14:30</p>
+							<p>15:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">15:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">15:30</p>
+							<p>16:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">16:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">16:30</p>
+							<p>17:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">17:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">17:30</p>
+							<p>18:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="tab_a">
+						<td width="70" height="40" algin="center">18:00</td>
+						<td width="110" height="40" algin="center"class="mfth">
+							<p style="border-bottom:1px dashed;">18:30</p>
+							<p>19:00</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table></div>
+		</div>
+		</div>
+
+		<div class="list_cd" style="margin-top:0;">
+			
+			<h5 style="margin-bottom:20px;">预约时间段</h5>
+
+			<div >
+				<form action="" style="padding:10px 0;width:100%; float:left;" class="yy_time">
+					<i>*</i>
+					<input type="text" value="11月7号"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					<input type="text" value="9:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b style="color:#aaa;font-weight:normal">——</b>
+					<input type="text" value="10:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+
+					<b class="cs">×</b>
+				</form>
+			</div>
+			<div >
+				<form action="" style="padding:10px 0;width:100%; float:left;" class="yy_timea">
+					<i>*</i>
+					<input type="text" value="11月7号"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					<input type="text" value="9:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b style="color:#aaa;font-weight:normal">——</b>
+					<input type="text" value="10:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+
+					<b class="cs">×</b>
+				</form>
+			</div>
+			<div >
+				<form action="" style="padding:10px 0;width:100%; float:left;" class="yy_timeb">
+					<i>*</i>
+					<input type="text" value="11月7号"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					<input type="text" value="9:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b style="color:#aaa;font-weight:normal">——</b>
+					<input type="text" value="10:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b class="cs">×</b>
+				</form>
+			</div>
+			
+		</div>
+		<div class="list_cd">
+			<h5 style="margin-bottom:20px;">备注信息</h5>
+			<div class="bez" style="margin-top:60px;padding: 13px 0;">
+			
+					<span style="font-size:14px;">场地备注：</span>
+                        <input type="text" name="comment" value="" class="beza" style="width:880px;">
+                        <p style="text-align: center;">（如对场地有其他需求，请于此处说明）</p>
+				</div>
+		</div>
+		
+		
+		<div class="xia">
+                <a href="next.html" title="" class="nex" id="s0">下一步</a>
+            </div>
+		
+	</div>
+</div>
+
+<div class="dhzx">
+		<div class="cha"></div>
+		<input class="btn_yy" type="button"value="可预约">&nbsp;&nbsp;<input class="btn_zy" type="button"value="已占用">
+</div>
+<div style="height:100px;"></div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+// $(document).ready(function(){
+//         $(".yy_time").click(function(){
+//         $(".add").show();
+//         });
+//         $(".add").click(function(){
+//         	$('.add').hover(function(){$(this).addClass('even')},function(){$(this).removeClass('even')})
+//         });
+
+//       });
+
+
+
+
+
+
+
+  $(document).ready(function(){
+        $(".yy_time").click(function(){
+        $(".cs").show();
+        });
+        $(".cs").click(function(){
+            $(".yy_time").remove();
+        });
+
+      });
+
+$(document).ready(function(){
+        $(".yy_timea").click(function(){
+        $(".csa").show();
+        });
+        $(".csa").click(function(){
+            $(".yy_timea").remove();
+        });
+
+      });
+
+$(document).ready(function(){
+        $(".yy_timeb").click(function(){
+        $(".csb").show();
+        });
+        $(".csb").click(function(){
+            $(".yy_timeb").remove();
+        });
+
+      });
+
+
+
+
+$(document).ready(function(){
+			$(".cha").click(function(){
+				$(".dhzx").hide();
+			});
+			$(".mfth").click(function(){
+				$(".dhzx").show();
+			});
+		});
+
+
+	var dayy=document.getElementById("day");
+	var inne=document.getElementById("bian_yue");
+	var bian_nian=document.getElementById("bian_nian");
+	var now_time=document.getElementById("now_time");
+	var ml=31;
+	var m=new Date().getMonth()+1;
+	var y=new Date().getFullYear();
+	inne.innerHTML=m;
+	bian_nian.innerHTML=y;
+
+	var weekday=new Array(7);
+	weekday[1]="周一";
+	weekday[2]="周二";
+	weekday[3]="周三";
+	weekday[4]="周四";
+	weekday[5]="周五";
+	weekday[6]="周六";
+	weekday[0]="周日";
+
+	setInterval(function(){
+		var hour=new Date().getHours();
+		var minute=new Date().getMinutes();
+		if (parseInt(minute)<10) {
+			now_time.innerHTML=hour+":"+"0"+minute;
+		}else{
+			now_time.innerHTML=hour+":"+minute;
+		}
+	});
+	
+	var day1 = new Date(y,m,0);
+	var daycount = day1.getDate();//获取当月天数
+	var xq=new Date(y,m-1,1).getDay();
+	var flag=1;
+	for(var i=0;i<daycount;i++){
+		var ele=document.createElement("div");
+		ele.innerHTML=flag;
+		document.getElementById('day').appendChild(ele);
+		if (ele.innerHTML==(new Date().getDate())) {
+			ele.style.background="#0AA770";
+			ele.style.color="#fff";
+		}
+		flag++;
+	}
+	rr(xq);
+
+
+	// 向上的每一月的月份
+	function fun(e){
+		if (e.id=="shang") {
+			inne.innerHTML-=1;
+			m-=1;
+			var ts=new Date(y,m+1,0).getDate();
+			if (inne.innerHTML=="0") {
+				inne.innerHTML=12;
+				y-=1;
+				m=12;
+				ts=new Date(y+1,1,0).getDate();
+				bian_nian.innerHTML=y;
+			}
+		}
+
+		// 向下的每一月的月份
+		else if(e.id=="xia"){
+			inne.innerHTML=parseInt(inne.innerHTML)+1;
+			m+=1;
+			var ts=new Date(y,m-1,0).getDate();
+			if (inne.innerHTML=="13") {
+				inne.innerHTML=1;
+				y+=1;
+				m=1;
+				ts=new Date(y-1,12,0).getDate();
+				bian_nian.innerHTML=y;
+			}
+		}
+		var day1 = new Date(y,m,0);
+		var daycount = day1.getDate();//获取当月天数
+		var xq=new Date(y,m-1,1).getDay();
+		var flag=1;
+		for(i=0;i<ts;i++){
+			dayy.removeChild(dayy.children[0])
+		}
+		for(i=0;i<daycount;i++){
+			var ele=document.createElement("div");
+			ele.innerHTML=flag;
+			document.getElementById('day').appendChild(ele);
+			if (ele.innerHTML==(new Date().getDate())) {
+				ele.style.background="#88BAA9";
+				ele.style.color="#fff";
+				if (inne.innerHTML==(new Date().getMonth()+1) && bian_nian.innerHTML==(new Date().getFullYear())) {
+					ele.style.background="#0AA770";
+					ele.style.color="#fff";
+				}
+			}
+			flag++;
+		}
+        rr(xq);
+		dayNews()
+	}
+	function dayNews() {
+		var child=document.getElementById("day").children;
+		for(var i=0;i<child.length;i++){
+			child[new Date().getDate()-1].click();
+			child[i].onclick=function (){
+				for(var i=0;i<child.length;i++){
+					child[i].className="";
+				}
+				this.className="click";
+				var thisDay=this.innerHTML;
+				var thisYear=this.parentElement.previousElementSibling.previousElementSibling.children[1].children[0].innerHTML;
+				var thisMonth=this.parentElement.previousElementSibling.previousElementSibling.children[1].children[2].innerHTML;
+				// document.getElementsByClassName('mian_top')[0].innerHTML=;
+				var news=document.getElementsByClassName("news")[0];
+				news.innerHTML=thisMonth+"-"+thisDay;
+				news.nextElementSibling.innerHTML=weekday[new Date(thisYear+"-"+thisMonth+"-"+thisDay).getDay()];
+
+				for(var i=1;i<=3;i++){
+					$(".news"+i+"").next().text(weekday[new Date(thisYear+"-"+thisMonth+"-"+(thisDay-i)).getDay()]);
+					$(".news"+i+"").text(thisMonth+"-"+(thisDay-i));
+					$(".news"+i+i+"").text(thisMonth+"-"+((parseInt(thisDay)+parseInt(i))));
+					$(".news"+i+i+"").next().text(weekday[new Date(thisYear+"-"+thisMonth+"-"+((parseInt(thisDay)+parseInt(i)))).getDay()]);
+				}
+				if((thisDay-1)<1){$(".news1").text("上月").next().text("--");}
+				if((thisDay-2)<1){$(".news2").text("上月").next().text("--");}
+				if((thisDay-3)<1){$(".news3").text("上月").next().text("--");}
+				var num_days=new Date(2016,thisMonth,0).getDate();
+				if(((parseInt(thisDay)+parseInt(1)))>num_days){
+					$(".news11").text("次月").next().text("--");
+				}
+				if(((parseInt(thisDay)+parseInt(2)))>num_days){
+					$(".news22").text("次月").next().text("--");
+				}
+				if(((parseInt(thisDay)+parseInt(3)))>num_days){
+					$(".news33").text("次月").next().text("--");
+				}
+			}
+		}
+	}dayNews();
+
+function rr(xq){
+	switch (xq){
+	case 0:
+		dayy.children[0].style.marginLeft=6*ml+"px";
+	  	break;
+	case 1:
+		dayy.children[0].style.marginLeft=0;
+	  	break;
+	case 2:
+		dayy.children[0].style.marginLeft=1*ml+"px";
+	  	break;
+	case 3:
+		dayy.children[0].style.marginLeft=2*ml+"px";
+	  	break;
+	case 4:
+		dayy.children[0].style.marginLeft=3*ml+"px";
+	  	break;
+	case 5:
+		dayy.children[0].style.marginLeft=4*ml+"px";
+	  	break;
+	case 6:
+		dayy.children[0].style.marginLeft=5*ml+"px";
+	  	break;
+	}
+}
+</script>
+</html>

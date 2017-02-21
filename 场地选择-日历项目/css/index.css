@@ -1,0 +1,387 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: "微软雅黑";
+}
+a{
+	text-decoration: none;
+}
+.head{
+	height: 100px;
+}
+.container{
+	width: 1020px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.back{
+	width: 348px;
+	height: 240px;
+	background: #f7f7f7;
+	border: 1px solid #d7d7d7;
+}
+.left{
+	width: 108px;
+	height: 144px;
+	text-align: center;
+	padding: 43px 0;
+	float: left;
+}
+.left img{
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+	padding: 4px;
+	border-radius: 50%;
+}
+ .left img:hover{
+	border: 1px solid #D8D8D8;
+	padding: 3px;
+} 
+.mid{
+	height: 80px;
+	margin: 10px 0;
+}
+.mid span:nth-of-type(1){
+	font-size: 14px;
+	color: #B4ABAD;
+}
+.mid span:nth-of-type(2),.mid span:nth-of-type(3){
+	font-size: 24px;
+	color: #0AA770;
+}
+.mid span:nth-of-type(4){
+	font-size: 13px;
+	color: #B4ABAD;
+}
+.mian_top{
+	width: 240px;
+	height: 45px;
+	float: left;
+}
+.mian_top > span{
+	display: inline-block;
+	float: left;
+	width: 30px;
+	height: 28px;
+	margin: 1px 1px 0 0;
+	color: #0AA770;
+	font-size: 12px;
+	text-align: center;
+	line-height: 28px;
+	padding-top: 14px;
+}
+#red{	color: #FE7200;}
+#red1{	color: #FE7200;}
+#day{
+	width: 217px;
+	height: 174px;
+	padding: 0 23px 21px 0;
+	float: left;
+}
+#day > div{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	color: #222;
+	text-align: center;
+	line-height: 30px;
+	font-size: 13px;
+	margin: 1px 1px 0 0;
+	float: left;
+	cursor: pointer;
+}
+#day > div:hover{
+	background: #E6F3DE;
+	color: #88BAA9;
+}
+.click{
+	background: #E6F3DE;
+}
+.main{
+	width: 350px;
+	overflow: hidden;
+	float: left;
+	/*height:500px;*/
+	background: #f1f1f1;
+}
+.menu{
+	width: 1020px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-top: 30px;
+}
+.lie table {
+    width: 100%;
+} 
+.lie table th:nth-child(1) {
+    text-indent: 15px;
+    width: 300px;
+}
+.lie table th {
+    background-color: #f2f2f2;
+    color: #5a5a5a;
+    height: 35px;
+    font-size: 15px;
+    font-weight: normal;
+}
+.adsie{
+	float: left;
+}
+.adsie{
+	margin-left: 40px;
+	height: 242px;
+	overflow:scroll;
+	overflow-x:hidden;
+	border-bottom: 1px solid #999;
+}
+.adsie .le{
+	width: 610px;
+	height: 242px;
+	list-style: none;
+}
+
+.le ul{list-style: none;}
+.le ul li{
+	height: 30px;
+	line-height: 30px;
+	padding: 10px 0;
+	border: 1px solid #999;
+	border-bottom: none;
+}
+.le ul li input{
+	height: 30px;
+	padding-left: 20px;
+	margin-left: 80px;
+	float: left;
+}
+.le ul li a{
+	width: 70px;
+	float: left;
+	display: block;
+    color: #fff;
+    margin-left: 20px;
+    background: #ff9419;
+    font-size: 16px;
+    font-family: "microsoft yahei";
+    line-height: 30px;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+.le ul li a:hover {
+    background: #f80;
+}
+.p{
+	width: 100%;
+	 border-collapse:collapse;
+}
+.at {
+	width: 100%;
+}
+.p th {
+    border-color: #999;
+    padding: 6px 0;
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #aaa;
+    font-family: "微软雅黑","宋体";
+    
+}
+.p .num{
+	font-weight: normal;
+}
+.p .ss:visited{
+background:red;
+}
+.p .ss:hover{
+	background-color: #31c1a0;
+	color: #fff;
+}
+
+.pkg_date_select {
+    background: #F5F5F5;
+    border: 1px solid #e2e2e2;
+    border-bottom: 1px solid #37C346;
+    font-family: "microsoft yahei";
+}
+.pkg_date_select {
+    position: relative;
+    z-index: 9;
+    height: 79px;
+}
+.pkg_date_prev, .pkg_date_next {
+    float: left;
+    width: 60px;
+    height: 79px;
+}
+.pkg_date_prev a.disabled, .pkg_date_next a.disabled, .pkg_date_prev a.disabled i, .pkg_date_next a.disabled i {
+    cursor: not-allowed;
+}
+.pkg_date_prev a, .pkg_date_next a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.pkg_date_prev a.disabled, .pkg_date_next a.disabled, .pkg_date_prev a.disabled i, .pkg_date_next a.disabled i {
+    cursor: not-allowed;
+}
+.pkg_date_prev a, .pkg_date_next a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.index1200 .pkg_date_list {
+    width: 705px;
+}
+.pkg_date_list {
+    position: relative;
+    float: left;
+    width: 705px;
+    height: 80px;
+    border: 1px solid #e2e2e2;
+    border-top: none;
+    border-bottom: none;
+    overflow: hidden;
+}
+.pkg_date_list ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: 0;
+    white-space: nowrap;
+}
+
+.index1200 .pkg_date_list li {
+    width: 100px;
+}
+.pkg_date_list .current {
+    border: 1px solid #37C346;
+    border-top: 2px solid #37C346;
+}
+.pkg_date_list .current {
+    z-index: 2;
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+.pkg_date_list li {
+    display: inline-block;
+    zoom: 1;
+    float: none;
+     width: 100px;
+}
+.pkg_date_list li {
+    position: relative;
+    z-index: 1;
+    height: 80px;
+    margin-right: -1px;
+    border: 1px solid #e2e2e2;
+    border-top: none;
+    border-bottom: none;
+    text-align: center;
+}
+.pkg_date_list .pkg_date_single a {
+    height: 50px;
+    padding: 15px 0;
+}
+.pkg_date_list .current a {
+    cursor: default;
+}
+.pkg_date_list li a {
+    display: block;
+    height: 58px;
+    padding: 11px 0;
+}
+.pkg_date_list li strong {
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    line-height: 22px;
+}
+.pkg_date_list li strong {
+    display: block;
+    margin-bottom: 4px;
+    line-height: 25px;
+}
+.pkg_date_list li span {
+    line-height: 22px;
+    text-align: center;
+}
+.pkg_date_list li span {
+    display: block;
+    margin-bottom: 2px;
+    line-height: 14px;
+    font-size: 12px;
+    color: #666;
+}
+.pkg_date_next {
+    float: left;
+    width: 60px;
+    height: 79px;
+}
+
+.pkg_date_prev i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 13px;
+    height: 22px;
+    margin: -11px 0 0 -6px;
+    padding: 0;
+    background: url(../spirit.png) -81px -233px repeat;}
+.pkg_date_next i {
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    width: 13px;
+    height: 22px;
+    margin: -11px 0 0 -6px;
+    padding: 0;
+    background: url(../spirit.png) -151px -233px repeat;
+    cursor: pointer;
+}
+
+.tap1{
+	width: 500px;
+	height: 60px;
+}
+.tap1 li{
+	width: 100px;
+	height: 60px;
+	background: #ade;
+	float: left;
+	margin-right: 1px;
+	font-size: 16px;
+	line-height: 60px;
+	text-align: center;
+	color: #fff;
+}
+.tap2{
+	height: 300px;
+	background: pink;
+	font-size: 16px;
+	line-height: 60px;
+	text-align: center;
+	color: #fff;
+}
+.tap2aa{
+	height: 300px;
+	font-size: 20px;
+	color: #999;
+	background-color: pink;}
+.hidd{
+	display: none;
+}
+.tap2bb{
+	width: 1020px;
+	height: 90px;
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>js写日期插件</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+	
+</head>
+<body>
+<!-- <div class="head"></div> -->
+<div class="container">
+	
+</div>
+<div>
+	<div class="menu">
+	
+                    
+		<div class="list_cd">
+
+			<h5>联系方式</h5>
+			<div style="display:block;float:left;margin-top:50px;">
+				<ul>
+                    <li><span><i>*</i>联系人：</span>
+                        <input type="text" name="contacts" value="" required="">
+                    </li>
+                    <li><span><i>*</i>手机：</span>
+                        <input type="text" name="phone" required="">
+                    </li>
+                    <li><span><i>*</i>电话：</span>
+                        <input type="text" name="tel" required="">
+                    </li>
+                    <li><span><i>*</i>传真：</span>
+                        <input type="text" name="fax" value="" required="">
+                    </li>
+                    <li><span><i>*</i>邮箱：</span>
+                        <input type="text" name="email" value="" required="">
+                    </li>
+                </ul>
+
+			</div>
+			
+		</div>
+		<div class="list_cd">
+			<h5>预付费用</h5>
+			<div style="margin-top:80px;">
+				<ul class="huang">
+                    <li class="kong" style="padding:0;">
+                        <p>计费标准</p>
+                        <p>用时(时)</p>
+                        <p>预估费用（元）</p>
+                    </li>
+                    <li>
+                        <p>宣讲会场地费用</p>
+                        <p id="pm"></p>
+                        <p class="price" style="border-right:none;"></p>
+						<input type="hidden" name="price" id="price" value="">
+                    </li>
+                </ul>
+			</div>
+				
+			
+		</div>
+		<span style="height:100px; display:bloack;float:right; margin:20px 20px;"><input class="btn_tr" type="button"value="保存">&nbsp;&nbsp;<input class="btn_tr" type="button"value="提交"></span>
+	</div>
+</div>
+
+<div class="dhzx">
+		<div class="cha"></div>
+		<input class="btn_yy" type="button"value="可预约">&nbsp;&nbsp;<input class="btn_zy" type="button"value="已占用">
+</div>
+<div style="height:100px;"></div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+// $(document).ready(function(){
+//         $(".yy_time").click(function(){
+//         $(".add").show();
+//         });
+//         $(".add").click(function(){
+//         	$('.add').hover(function(){$(this).addClass('even')},function(){$(this).removeClass('even')})
+//         });
+
+//       });
+
+
+
+
+
+
+ $(document).ready(function(){
+        $(".yy_time").click(function(){
+        $(".cs").show();
+        });
+        $(".cs").click(function(){
+            $(".yy_time").remove();
+        });
+
+      });
+
+  $(document).ready(function(){
+        $(".yy_time1").click(function(){
+        $(".cs1").show();
+        });
+        $(".cs1").click(function(){
+            $(".yy_time1").remove();
+        });
+
+      });
+
+
+$(document).ready(function(){
+			$(".cha").click(function(){
+				$(".dhzx").hide();
+			});
+			$(".mfth").click(function(){
+				$(".dhzx").show();
+			});
+		});
+
+
+	var dayy=document.getElementById("day");
+	var inne=document.getElementById("bian_yue");
+	var bian_nian=document.getElementById("bian_nian");
+	var now_time=document.getElementById("now_time");
+	var ml=31;
+	var m=new Date().getMonth()+1;
+	var y=new Date().getFullYear();
+	inne.innerHTML=m;
+	bian_nian.innerHTML=y;
+
+	var weekday=new Array(7);
+	weekday[1]="周一";
+	weekday[2]="周二";
+	weekday[3]="周三";
+	weekday[4]="周四";
+	weekday[5]="周五";
+	weekday[6]="周六";
+	weekday[0]="周日";
+
+	setInterval(function(){
+		var hour=new Date().getHours();
+		var minute=new Date().getMinutes();
+		if (parseInt(minute)<10) {
+			now_time.innerHTML=hour+":"+"0"+minute;
+		}else{
+			now_time.innerHTML=hour+":"+minute;
+		}
+	});
+	
+	var day1 = new Date(y,m,0);
+	var daycount = day1.getDate();//获取当月天数
+	var xq=new Date(y,m-1,1).getDay();
+	var flag=1;
+	for(var i=0;i<daycount;i++){
+		var ele=document.createElement("div");
+		ele.innerHTML=flag;
+		document.getElementById('day').appendChild(ele);
+		if (ele.innerHTML==(new Date().getDate())) {
+			ele.style.background="#0AA770";
+			ele.style.color="#fff";
+		}
+		flag++;
+	}
+	rr(xq);
+
+
+	// 向上的每一月的月份
+	function fun(e){
+		if (e.id=="shang") {
+			inne.innerHTML-=1;
+			m-=1;
+			var ts=new Date(y,m+1,0).getDate();
+			if (inne.innerHTML=="0") {
+				inne.innerHTML=12;
+				y-=1;
+				m=12;
+				ts=new Date(y+1,1,0).getDate();
+				bian_nian.innerHTML=y;
+			}
+		}
+
+		// 向下的每一月的月份
+		else if(e.id=="xia"){
+			inne.innerHTML=parseInt(inne.innerHTML)+1;
+			m+=1;
+			var ts=new Date(y,m-1,0).getDate();
+			if (inne.innerHTML=="13") {
+				inne.innerHTML=1;
+				y+=1;
+				m=1;
+				ts=new Date(y-1,12,0).getDate();
+				bian_nian.innerHTML=y;
+			}
+		}
+		var day1 = new Date(y,m,0);
+		var daycount = day1.getDate();//获取当月天数
+		var xq=new Date(y,m-1,1).getDay();
+		var flag=1;
+		for(i=0;i<ts;i++){
+			dayy.removeChild(dayy.children[0])
+		}
+		for(i=0;i<daycount;i++){
+			var ele=document.createElement("div");
+			ele.innerHTML=flag;
+			document.getElementById('day').appendChild(ele);
+			if (ele.innerHTML==(new Date().getDate())) {
+				ele.style.background="#88BAA9";
+				ele.style.color="#fff";
+				if (inne.innerHTML==(new Date().getMonth()+1) && bian_nian.innerHTML==(new Date().getFullYear())) {
+					ele.style.background="#0AA770";
+					ele.style.color="#fff";
+				}
+			}
+			flag++;
+		}
+        rr(xq);
+		dayNews()
+	}
+	function dayNews() {
+		var child=document.getElementById("day").children;
+		for(var i=0;i<child.length;i++){
+			child[new Date().getDate()-1].click();
+			child[i].onclick=function (){
+				for(var i=0;i<child.length;i++){
+					child[i].className="";
+				}
+				this.className="click";
+				var thisDay=this.innerHTML;
+				var thisYear=this.parentElement.previousElementSibling.previousElementSibling.children[1].children[0].innerHTML;
+				var thisMonth=this.parentElement.previousElementSibling.previousElementSibling.children[1].children[2].innerHTML;
+				// document.getElementsByClassName('mian_top')[0].innerHTML=;
+				var news=document.getElementsByClassName("news")[0];
+				news.innerHTML=thisMonth+"-"+thisDay;
+				news.nextElementSibling.innerHTML=weekday[new Date(thisYear+"-"+thisMonth+"-"+thisDay).getDay()];
+
+				for(var i=1;i<=3;i++){
+					$(".news"+i+"").next().text(weekday[new Date(thisYear+"-"+thisMonth+"-"+(thisDay-i)).getDay()]);
+					$(".news"+i+"").text(thisMonth+"-"+(thisDay-i));
+					$(".news"+i+i+"").text(thisMonth+"-"+((parseInt(thisDay)+parseInt(i))));
+					$(".news"+i+i+"").next().text(weekday[new Date(thisYear+"-"+thisMonth+"-"+((parseInt(thisDay)+parseInt(i)))).getDay()]);
+				}
+				if((thisDay-1)<1){$(".news1").text("上月").next().text("--");}
+				if((thisDay-2)<1){$(".news2").text("上月").next().text("--");}
+				if((thisDay-3)<1){$(".news3").text("上月").next().text("--");}
+				var num_days=new Date(2016,thisMonth,0).getDate();
+				if(((parseInt(thisDay)+parseInt(1)))>num_days){
+					$(".news11").text("次月").next().text("--");
+				}
+				if(((parseInt(thisDay)+parseInt(2)))>num_days){
+					$(".news22").text("次月").next().text("--");
+				}
+				if(((parseInt(thisDay)+parseInt(3)))>num_days){
+					$(".news33").text("次月").next().text("--");
+				}
+			}
+		}
+	}dayNews();
+
+function rr(xq){
+	switch (xq){
+	case 0:
+		dayy.children[0].style.marginLeft=6*ml+"px";
+	  	break;
+	case 1:
+		dayy.children[0].style.marginLeft=0;
+	  	break;
+	case 2:
+		dayy.children[0].style.marginLeft=1*ml+"px";
+	  	break;
+	case 3:
+		dayy.children[0].style.marginLeft=2*ml+"px";
+	  	break;
+	case 4:
+		dayy.children[0].style.marginLeft=3*ml+"px";
+	  	break;
+	case 5:
+		dayy.children[0].style.marginLeft=4*ml+"px";
+	  	break;
+	case 6:
+		dayy.children[0].style.marginLeft=5*ml+"px";
+	  	break;
+	}
+}
+</script>
+</html>

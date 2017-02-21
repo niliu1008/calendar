@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>场地预约</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="css/index.css" rel="stylesheet">
+    <link href="css/changdi.css" rel="stylesheet">
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="js/jquery.fancyspinbox.js"></script>
+</head>
+<body>
+<div style="height:45px;line-height:45px" class="header">
+    <div style="width:1020px" class="container">
+        <span style="margin-left:0px">北京新科动力人力资源股份有限公司(809****49@q)</span>
+            您好，欢迎登录使用！
+            <a href="/Admin/Login/logout">退出登录</a>
+            <a href="/Com/Index/changePassword">修改密码&nbsp;&nbsp;|</a>
+            <a href="/Com/Index/myAccount">企业主页&nbsp;&nbsp;|</a>
+            <a href="/Com/Bbs/pingAn">平台通知
+                &nbsp;&nbsp;&nbsp;&nbsp;|</a>        
+                 <a href="/Com/Bbs/schoolAn">院校通知
+                &nbsp;&nbsp;&nbsp;&nbsp;|</a>
+</div>
+</div>
+<nav class="navbar" style="background-color:#f8f8f8;">    
+    <div style="width:1020px" class="container">
+        <div class="navbar-header">
+            
+            <a href="">
+                <img style="padding-top:8px;padding-bottom:8px" src="qiyetai_03.png">
+            </a>
+        </div>
+        <ul class="nav">
+            <li class=""><a style="color: rgb(0, 0, 0);" href="/Com/Index/workbench">工作台</a></li><li class=""><a style="color: rgb(0, 0, 0);" href="/Com/Resume/validJob">职位信息</a></li><li class=""><a style="color: rgb(0, 0, 0);" href="/Com/Fields/jobfair">双选会报名</a></li><li class=""><a style="color: rgb(0, 0, 0);" href="/Com/Fields/index">场地预约</a></li><li class=""><a style="color: rgb(0, 0, 0);" href="/Com/Talk">校招公告</a></li><li class="active"><a style="color: rgb(255, 255, 255);" href="/Com/Resume/pendingResume">简历管理</a></li><li><a style="color:#2f2d2c" href="/Com/Evaluation">测评管理</a></li>        
+        </ul>
+    </div>
+</nav>
+<div class="container" style="padding-top:45px">
+    
+
+
+<div class="contentLeft">
+    <a class="fb" href="" style=""><i></i>预约</a>
+    <a class="fb" href="" style="display:none"><i></i>发布新职位</a>
+
+    <div class="ad">
+        <img src="ad.jpg" alt="">
+    </div>  
+    <dl class="leftMenu">
+        <section id="J1" style="display: block;">
+             <!-- <dt>草稿</dt> -->
+                <dd class="on"><a href="">草稿（<span>0</span>）</a></dd>
+                <dd><a href="">我的预约（<span>2</span>）</a></dd>
+                <dd class="jie"><a href="">正举办的（<span>0</span>）</a></dd>
+                <dd><a href="">已经成功举办的（<span>2</span>）</a></dd>      
+        </section>
+        <section id="J2">
+             <dt style="margin-top: 15px">我发布的职位</dt>
+             <dd><a href="">有效职位（<span>5</span>）</a></dd>
+             <dd><a href="">即将下线的职位（<span>0</span>）</a></dd>
+             <dd><a href="">已下线的职位（<span>0</span>）</a></dd>
+             <dd><a href="">草稿箱（<span>0</span>）</a></dd>        
+        </section>
+    </dl>
+</div>
+ 
+
+
+
+
+<div class="contentRight">
+	<div class="jindu">
+        <ul>
+            <li><span>1</span><i>宣讲信息</i></li>
+            <li><span>2</span><i>职位信息</i></li>
+            <li  class="on"><span>3</span><i>预约场地</i></li>
+            <li><span>4</span><i>填写联系人</i></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="cd_ss" style="margin-bottom:30px;margin-top:30px;">
+    	<span><i>*</i>选择学校：</span>
+            <select name="province" id="province" class="sho" required="">
+        		<option value="0">请选择省</option>
+                <option value="2">北京</option><option value="21">天津</option><option value="40">河北省</option><option value="223">山西省</option><option value="354">内蒙古自治区</option><option value="468">辽宁省</option><option value="583">吉林省</option><option value="653">黑龙江省</option><option value="794">上海</option><option value="815">江苏省</option><option value="935">浙江省</option><option value="1037">安徽省</option><option value="1155">福建省</option><option value="1250">江西省</option><option value="1361">山东省</option><option value="1519">河南省</option><option value="1697">湖北省</option><option value="1811">湖南省</option><option value="1948">广东省</option><option value="2091">广西壮族自治区</option><option value="2215">海南省</option><option value="2240">重庆</option><option value="2281">四川省</option><option value="2484">贵州省</option><option value="2582">云南省</option><option value="2728">西藏自治区</option><option value="2809">陕西省</option><option value="2927">甘肃省</option><option value="3029">青海省</option><option value="3080">宁夏回族自治区</option><option value="3108">新疆维吾尔自治区</option><option value="3223">台湾省</option><option value="3224">澳门特别行政区</option><option value="3239">香港特别行政区</option><option value="3240">尼日利亚</option><option value="3241">肯尼亚</option><option value="3242">俄罗斯</option><option value="3243">东帝汶</option><option value="3244">朝鲜</option><option value="3245">阿根廷</option><option value="3246">韩国</option><option value="3247">伊朗</option></select>
+            	<select name="city" id="city" class="sho" required=""><option value="0">请选择市</option><option value="22">和平区</option><option value="23">河东区</option><option value="24">河西区</option><option value="25">南开区</option><option value="26">河北区</option><option value="27">红桥区</option><option value="29">汉沽区</option><option value="31">东丽区</option><option value="32">西青区</option><option value="33">津南区</option><option value="34">北辰区</option><option value="35">武清区</option><option value="36">宝坻区</option><option value="37">宁河县</option><option value="38">静海县</option><option value="39">蓟县</option><option value="3231">滨海新区</option></select>
+            	<select name="school_id" id="school_id" class="sho"><option value="0" selected="">请选择学校</option><option value="6">天津职业技术师范大学</option><option value="1609">南开大学</option><option value="1610">天津大学</option><option value="1611">中国民航大学</option><option value="1612">天津工业大学</option><option value="1613">天津科技大学</option><option value="1614">天津理工大学</option><option value="1615">天津医科大学</option><option value="1616">天津中医药大学</option><option value="1617">天津师范大学</option><option value="1618">天津财经大学</option><option value="1619">天津商业大学</option><option value="1620">天津外国语大学</option><option value="1621">天津城建大学</option><option value="1622">天津农学院</option><option value="1623">天津体育学院</option><option value="1624">天津音乐学院</option><option value="1625">天津美术学院</option><option value="2402">天津医学高等高职高专学校</option><option value="2403">天津机电职业技术学院</option><option value="2404">天津职业大学</option><option value="2405">天津公安警官职业学院</option><option value="2406">天津渤海职业技术学院</option><option value="2407">天津工程职业技术学院</option><option value="2408">天津城市建设管理职业技术学院</option><option value="2409">天津广播影视职业学院</option><option value="2410">天津海运职业学院</option><option value="2411">天津艺术职业学院</option><option value="2412">天津城市职业学院</option><option value="2413">天津冶金职业技术学院</option><option value="2414">天津工艺美术职业学院</option><option value="2415">天津铁道职业技术学院</option><option value="2416">天津交通职业学院</option><option value="2417">天津商务职业学院</option><option value="2418">天津青年职业学院</option><option value="2582">天津体育学院运动与文化艺术学院</option><option value="2583">南开大学滨海学院</option><option value="2584">天津外国语学院滨海外事学院</option><option value="2585">天津商业大学宝德学院</option><option value="2586">天津医科大学临床医学院</option><option value="2587">北京科技大学天津学院</option><option value="2588">天津师范大学津沽学院</option><option value="2589">天津理工大学中环信息学院</option><option value="2590">天津大学仁爱学院</option><option value="2591">天津财经大学珠江学院</option><option value="2593">天津天狮学院　</option><option value="2731">天津天狮学院</option><option value="2732">天津现代职业技术学院</option><option value="2733">天津轻工职业技术学院</option><option value="2734">天津电子信息职业技术学院</option><option value="2735">天津中德职业技术学院</option><option value="2736">天津石油职业技术学院</option><option value="2752">天津滨海职业学院</option><option value="2753">天津国土资源和房屋职业学院</option><option value="2754">天津生物工程职业技术学院</option><option value="2755">天津开发区职业技术学院</option></select>
+    </div>
+    <div style="margin-bottom:30px; overflow: hidden;">
+    	<div class="main">
+			<div class="back">
+				<div class="left">
+					<img src="top.png" alt="" width="18" id="shang" title="上一页" onclick="fun(this)"/>
+					<div class="mid">
+						<span id="bian_nian">xxxx</span><br />
+						<span id="bian_yue">x</span><span>月</span><br />
+						<span id="now_time">xx:xx</span>
+					</div>
+					<img src="bottom.png" alt="" width="18" id="xia" title="下一页" onclick="fun(this)"/>
+				</div>
+				<div class="mian_top">
+					<span>一</span>
+					<span>二</span>
+					<span>三</span>
+					<span>四</span>
+					<span>五</span>
+					<span id="red">六</span>
+					<span id="red1">日</span>
+				</div>
+				<div id="day">
+				</div>
+			</div>
+		</div>
+		<div class="main_rt">
+			<div>
+				 <img src="ad.jpg" alt="" style="width:100%;height:100%;">
+			</div>
+			<!-- <div style="float:left;margin-left:30px;">
+				<h5>场地信息:</h5>
+
+		        <p>容纳人数：<span id="contain"></span></p>
+		        <p>展位数：<span id="max_position"></span></p>
+		        <p>可用时间段：<span id="duration"></span></p>
+		        <p>费用：<span id="cost"></span></p>
+		        <p>备注：<span id="comment"></span></p>
+		    </div> -->
+		</div>
+    </div>
+    <div style="margin-top:20px;height: 170px; overflow: scroll;overflow-x: hidden;border-bottom: 1px solid #999;">
+    	
+    	<table class="p" border="0" cellspacing="0" cellpadding="0" width="" >
+			<tbody>
+				<tr class="at"style="background:#faaa4b;">
+					<th class="num" style="color:#fff;">1</th>
+					<th class="ss" style="color:#fff;">场地列表</th>
+					<th class="ss" style="color:#fff;">规模</th>
+					<th class="ss" style="color:#fff;">费用</th>
+					<th class="ss" style="color:#fff;">备注</th>
+				</tr>
+				</tbody>
+			<tbody>
+				<tr class="at">
+					<th class="num">2</th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+				</tr>
+
+				<tr class="at">
+					<th class="num">3</th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+				</tr>
+				<tr class="at">
+					<th class="num">4</th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+				</tr>
+				<tr class="at">
+					<th class="num">5</th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+				</tr>
+				<tr class="at">
+					<th class="num">6</th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+				</tr>
+				<tr class="at">
+					<th class="num">7</th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+				</tr>
+				<tr class="at">
+					<th class="num">8</th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+					<th class="ss"></th>
+				</tr>
+			</tbody>
+		</table>	
+    </div>
+  
+    <div>
+    	<div class="list_cd" style="margin-top:20px;border-top:1px dotted gray; padding-left:50px;padding-bottom:20px;">
+			
+			<h5 style="margin-bottom:20px;">预约时间段</h5>
+
+			<div >
+				<form action="" style="padding:10px 0;width:100%; float:left;" class="yy_time">
+					<i>*</i>
+					<input type="text" value="11月7号"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					<input type="text" value="9:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b style="color:#aaa;font-weight:normal">——</b>
+					<input type="text" value="10:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+
+					<!-- <b class="add">+</b> -->
+					<b class="cs">×</b>
+				</form>
+			</div>
+			<!-- <div >
+				<form action="" style="padding:10px 0;width:100%; float:left;" class="yy_time">
+					<i>*</i>
+					<input type="text" value="11月7号"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					<input type="text" value="9:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b style="color:#aaa;font-weight:normal">——</b>
+					<input type="text" value="10:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b class="cs">×</b>
+				</form>
+			</div>
+			<div>
+				<form action="" style="padding:10px 0;width:100%; float:left;" class="yy_time">
+					<i>*</i>
+					<input type="text" value="11月7号"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					<input type="text" value="9:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b style="color:#aaa;font-weight:normal">——</b>
+					<input type="text" value="10:00"style="padding:5px 0 5px 7px;color:#999;margin-right:10px; width:150px;">
+					
+					<b class="cs">×</b>
+				</form>
+			</div> -->
+			
+		</div>
+		<div class="list_cd" style="padding-left:50px;">
+			<h5 style="margin-bottom:20px;">备注信息</h5>
+			<div class="bez" style="margin-top:60px;padding: 20px 0;">
+                <textarea name="textarea2" cols="100" rows="9" style="width:620px;padding-top:20px;color:#999;">　如对场地有其他需求，请于此处说明
+　				</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="xia">
+		<a href="xjxx.html" title="" class="nex" id="s0">上一步</a>
+                <a href="lianxi.html" title="" class="nex" id="s0">下一步</a>
+            </div>
+    </div>
+
+    <!-- 弹出 -->
+<div class="dhzxa">
+    <div class="cuo">x</div>
+    <div style="display:block; padding:30px;height:300px;">
+    	<div class="main_rt">
+			<div>
+				 <img src="ad.jpg" alt="" style="width:100%;height:100%;">
+			</div>
+			
+		</div>
+    	
+       
+    </div>
+    
+</div>   
+
+      
+
+  
+        
+
+<script type="text/javascript">
+// $(document).ready(function(){
+//         $(".yy_time").click(function(){
+//         $(".add").show();
+//         });
+//         $(".add").click(function(){
+//         	$('.add').hover(function(){$(this).addClass('even')},function(){$(this).removeClass('even')})
+//         });
+
+//       });
+
+
+ $(document).ready(function(){
+    $(".main_rt").click(function(){
+        $(".dhzxa").show();
+    });
+     $(".cuo").click(function(){
+        $(".dhzxa").hide();
+    });
+    
+});
+
+
+
+ $(document).ready(function(){
+        $(".yy_time").click(function(){
+        $(".cs").show();
+        });
+        $(".cs").click(function(){
+            $(".yy_time").remove();
+        });
+
+      });
+
+  $(document).ready(function(){
+        $(".yy_time1").click(function(){
+        $(".cs1").show();
+        });
+        $(".cs1").click(function(){
+            $(".yy_time1").remove();
+        });
+
+      });
+
+
+$(document).ready(function(){
+			$(".cha").click(function(){
+				$(".dhzx").hide();
+			});
+			$(".mfth").click(function(){
+				$(".dhzx").show();
+			});
+		});
+
+
+	var dayy=document.getElementById("day");
+	var inne=document.getElementById("bian_yue");
+	var bian_nian=document.getElementById("bian_nian");
+	var now_time=document.getElementById("now_time");
+	var ml=31;
+	var m=new Date().getMonth()+1;
+	var y=new Date().getFullYear();
+	inne.innerHTML=m;
+	bian_nian.innerHTML=y;
+
+	var weekday=new Array(7);
+	weekday[1]="周一";
+	weekday[2]="周二";
+	weekday[3]="周三";
+	weekday[4]="周四";
+	weekday[5]="周五";
+	weekday[6]="周六";
+	weekday[0]="周日";
+
+	setInterval(function(){
+		var hour=new Date().getHours();
+		var minute=new Date().getMinutes();
+		if (parseInt(minute)<10) {
+			now_time.innerHTML=hour+":"+"0"+minute;
+		}else{
+			now_time.innerHTML=hour+":"+minute;
+		}
+	});
+	
+	var day1 = new Date(y,m,0);
+	var daycount = day1.getDate();//获取当月天数
+	var xq=new Date(y,m-1,1).getDay();
+	var flag=1;
+	for(var i=0;i<daycount;i++){
+		var ele=document.createElement("div");
+		ele.innerHTML=flag;
+		document.getElementById('day').appendChild(ele);
+		if (ele.innerHTML==(new Date().getDate())) {
+			ele.style.background="#0AA770";
+			ele.style.color="#fff";
+		}
+		flag++;
+	}
+	rr(xq);
+
+
+	// 向上的每一月的月份
+	function fun(e){
+		if (e.id=="shang") {
+			inne.innerHTML-=1;
+			m-=1;
+			var ts=new Date(y,m+1,0).getDate();
+			if (inne.innerHTML=="0") {
+				inne.innerHTML=12;
+				y-=1;
+				m=12;
+				ts=new Date(y+1,1,0).getDate();
+				bian_nian.innerHTML=y;
+			}
+		}
+
+		// 向下的每一月的月份
+		else if(e.id=="xia"){
+			inne.innerHTML=parseInt(inne.innerHTML)+1;
+			m+=1;
+			var ts=new Date(y,m-1,0).getDate();
+			if (inne.innerHTML=="13") {
+				inne.innerHTML=1;
+				y+=1;
+				m=1;
+				ts=new Date(y-1,12,0).getDate();
+				bian_nian.innerHTML=y;
+			}
+		}
+		var day1 = new Date(y,m,0);
+		var daycount = day1.getDate();//获取当月天数
+		var xq=new Date(y,m-1,1).getDay();
+		var flag=1;
+		for(i=0;i<ts;i++){
+			dayy.removeChild(dayy.children[0])
+		}
+		for(i=0;i<daycount;i++){
+			var ele=document.createElement("div");
+			ele.innerHTML=flag;
+			document.getElementById('day').appendChild(ele);
+			if (ele.innerHTML==(new Date().getDate())) {
+				ele.style.background="#88BAA9";
+				ele.style.color="#fff";
+				if (inne.innerHTML==(new Date().getMonth()+1) && bian_nian.innerHTML==(new Date().getFullYear())) {
+					ele.style.background="#0AA770";
+					ele.style.color="#fff";
+				}
+			}
+			flag++;
+		}
+        rr(xq);
+		dayNews()
+	}
+	function dayNews() {
+		var child=document.getElementById("day").children;
+		for(var i=0;i<child.length;i++){
+			child[new Date().getDate()-1].click();
+			child[i].onclick=function (){
+				for(var i=0;i<child.length;i++){
+					child[i].className="";
+				}
+				this.className="click";
+				var thisDay=this.innerHTML;
+				var thisYear=this.parentElement.previousElementSibling.previousElementSibling.children[1].children[0].innerHTML;
+				var thisMonth=this.parentElement.previousElementSibling.previousElementSibling.children[1].children[2].innerHTML;
+				// document.getElementsByClassName('mian_top')[0].innerHTML=;
+				var news=document.getElementsByClassName("news")[0];
+				news.innerHTML=thisMonth+"-"+thisDay;
+				news.nextElementSibling.innerHTML=weekday[new Date(thisYear+"-"+thisMonth+"-"+thisDay).getDay()];
+
+				for(var i=1;i<=3;i++){
+					$(".news"+i+"").next().text(weekday[new Date(thisYear+"-"+thisMonth+"-"+(thisDay-i)).getDay()]);
+					$(".news"+i+"").text(thisMonth+"-"+(thisDay-i));
+					$(".news"+i+i+"").text(thisMonth+"-"+((parseInt(thisDay)+parseInt(i))));
+					$(".news"+i+i+"").next().text(weekday[new Date(thisYear+"-"+thisMonth+"-"+((parseInt(thisDay)+parseInt(i)))).getDay()]);
+				}
+				if((thisDay-1)<1){$(".news1").text("上月").next().text("--");}
+				if((thisDay-2)<1){$(".news2").text("上月").next().text("--");}
+				if((thisDay-3)<1){$(".news3").text("上月").next().text("--");}
+				var num_days=new Date(2016,thisMonth,0).getDate();
+				if(((parseInt(thisDay)+parseInt(1)))>num_days){
+					$(".news11").text("次月").next().text("--");
+				}
+				if(((parseInt(thisDay)+parseInt(2)))>num_days){
+					$(".news22").text("次月").next().text("--");
+				}
+				if(((parseInt(thisDay)+parseInt(3)))>num_days){
+					$(".news33").text("次月").next().text("--");
+				}
+			}
+		}
+	}dayNews();
+
+function rr(xq){
+	switch (xq){
+	case 0:
+		dayy.children[0].style.marginLeft=6*ml+"px";
+	  	break;
+	case 1:
+		dayy.children[0].style.marginLeft=0;
+	  	break;
+	case 2:
+		dayy.children[0].style.marginLeft=1*ml+"px";
+	  	break;
+	case 3:
+		dayy.children[0].style.marginLeft=2*ml+"px";
+	  	break;
+	case 4:
+		dayy.children[0].style.marginLeft=3*ml+"px";
+	  	break;
+	case 5:
+		dayy.children[0].style.marginLeft=4*ml+"px";
+	  	break;
+	case 6:
+		dayy.children[0].style.marginLeft=5*ml+"px";
+	  	break;
+	}
+}
+</script>
+<script type="text/javascript">
+	$("#province").change(function() {
+        var id = $("#province").val();
+        var strr_tmp = '<option value="0" selected >请选择市</option>';
+        $("#city").html(strr_tmp);
+        $("#id").html(strr_tmp);
+        $.get("__ACTION__/th/" + id,
+            function(data) {
+                var data = eval("(" + data + ")");
+
+                var strr = '';
+                if (data != null) {
+                    strr += '<option value="0" >请选择市</option>';
+                    for (var i = 0; i < data.length; i++) {
+
+                        strr += '<option value="' + data[i].region_id + '">' + data[i].region_name + '</option>';
+                    }
+                }
+                $("#city").html(strr);
+                $("#city").val(0);
+            }
+        );
+        $.get("__ACTION__/xx/" + id,
+            function(data) {
+                var data = eval("(" + data + ")");
+
+                var strr = '';
+                if (data != null) {
+                    strr += '<option value="0" selected >请选择学校</option>';
+                    for (var i = 0; i < data.length; i++) {
+
+                        strr += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                }
+                $("#school_id").html(strr);
+                $("#school_id").val(0);
+            }
+        );
+
+    });
+
+    $("#city").change(function() {
+        var id = $("#city").val();
+        if (id > 0) {
+            $.get("__ACTION__/xx_city/" + id,
+                function(data) {
+                    var data = eval("(" + data + ")");
+
+                    var strr = '';
+                    if (data != null) {
+                        strr += '<option value="0" selected >请选择学校</option>';
+                        for (var i = 0; i < data.length; i++) {
+
+                            strr += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                        }
+                    }
+                    $("#school_id").html(strr);
+                    $("#school_id").val(0);
+
+                }
+            );
+        } else {
+            var id = $("#province").val();
+            $.get("__ACTION__/xx/" + id,
+                function(data) {
+                    var data = eval("(" + data + ")");
+
+                    var strr = '';
+                    if (data != null) {
+                        strr += '<option value="0" selected >请选择学校</option>';
+                        for (var i = 0; i < data.length; i++) {
+
+                            strr += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                        }
+                    }
+                    $("#school_id").html(strr);
+                    $("#school_id").val(0);
+                }
+            );
+
+        }
+
+    });
+	$("#school_id").change(function() {
+        var id = $("#school_id").val();
+		var uses = $('input[name="type"]:checked ').val();
+		if(uses == 1){
+			uses = 2081;
+		}else if(uses == 2){
+			uses = 2082;
+		}else if(uses == 3){
+			uses = 2083;
+		}
+            $.get("__ACTION__/school_idd/" + id + "/uses/" + uses,
+                function(data) {
+                    var data = eval("(" + data + ")");
+
+                    var strr = '';
+                    if (data != null) {
+                        strr += '<option value="0" selected >请选择</option>';
+                        for (var i = 0; i < data.length; i++) {
+
+                            strr += '<option value="' + data[i].id + '">' + data[i].field_name + '</option>';
+                        }
+                    }
+                    $("#field_id").html(strr);
+
+                }
+            );
+
+    });
+	
+	$("#field_id").change(function() {
+        var id = $("#field_id").val();
+            $.get("__ACTION__/field_id/" + id,
+                function(data) {
+                    var data = eval("(" + data + ")");
+
+                    $('#contain').html(data.contain);
+                    $('#max_position').html(data.max_position);
+					if(data.shangwu == 1){
+						var str1 = '上午'+data.start_time_s+'-'+data.end_time_s;
+					}else{
+						var str1 = '';
+					}
+					if(data.xiawu == 1){
+						var str2 = '下午'+data.start_time_x+'-'+data.end_time_x;
+					}else{
+						var str2 = '';
+					}
+					if(data.wanshang == 1){
+						var str3 = '晚上'+data.start_time_w+'-'+data.end_time_w;
+					}else{
+						var str3 = '';
+					}
+                    $('#duration').html(str1+str2+str3);
+                    $('#cost').html(data.cost);
+                    $('#comment').html(data.comment);
+                }
+            );
+
+    });  
+
+
+	    $("#province_s").change(function() {
+        var id = $("#province_s").val();
+        var strr_tmp = '<option value="0" selected >请选择市</option>';
+        $("#city_s").html(strr_tmp);
+        $("#id_s").html(strr_tmp);
+        $.get("__ACTION__/th/" + id,
+            function(data) {
+                var data = eval("(" + data + ")");
+
+                var strr = '';
+                if (data != null) {
+                    strr += '<option value="0" >请选择市</option>';
+                    for (var i = 0; i < data.length; i++) {
+
+                        strr += '<option value="' + data[i].region_id + '">' + data[i].region_name + '</option>';
+                    }
+                }
+                $("#city_s").html(strr);
+                $("#city_s").val(0);
+            }
+        );
+        $.get("__ACTION__/xx/" + id,
+            function(data) {
+                var data = eval("(" + data + ")");
+
+                var strr = '';
+                if (data != null) {
+                    strr += '<option value="0" selected >请选择学校</option>';
+                    for (var i = 0; i < data.length; i++) {
+
+                        strr += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                }
+                $("#school_id_s").html(strr);
+                $("#school_id_s").val(0);
+            }
+        );
+
+    });
+
+    $("#city_s").change(function() {
+        var id = $("#city_s").val();
+        if (id > 0) {
+            $.get("__ACTION__/xx_city/" + id,
+                function(data) {
+                    var data = eval("(" + data + ")");
+
+                    var strr = '';
+                    if (data != null) {
+                        strr += '<option value="0" selected >请选择学校</option>';
+                        for (var i = 0; i < data.length; i++) {
+
+                            strr += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                        }
+                    }
+                    $("#school_id_s").html(strr);
+                    $("#school_id_s").val(0);
+
+                }
+            );
+        } else {
+            var id = $("#province_s").val();
+            $.get("__ACTION__/xx/" + id,
+                function(data) {
+                    var data = eval("(" + data + ")");
+
+                    var strr = '';
+                    if (data != null) {
+                        strr += '<option value="0" selected >请选择学校</option>';
+                        for (var i = 0; i < data.length; i++) {
+
+                            strr += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                        }
+                    }
+                    $("#school_id_s").html(strr);
+                    $("#school_id_s").val(0);
+                }
+            );
+
+        }
+
+    });
+
+})
+</script>
+   
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="table">
+    <tr>
+        <td>星期一</td>
+        <td>星期二</td>
+        <td>星期三</td>
+        <td>星期四</td>
+        <td>星期五</td>
+        <td>星期六</td>
+        <td>星期日</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</body>
+<script>
+    var month = 10;//所在月份
+    var firstTime = new Date("2016-" + month + "-1");//本月第一天是星期几
+    firstTime=firstTime.getDay();
+    firstTime = (firstTime == 0 ? 6 : firstTime - 1);//从新构造firstTime 0代表星期一 6代表星期日
+    var month_all_day;
+    if (!month == 13) {
+        month_all_day = new Date("2016-" + (month + 1) + "-1");
+    } else {
+        month_all_day = new Date("2017-1-1");
+    }
+    month_all_day = month_all_day.setDate(0);
+    month_all_day = new Date(month_all_day).getDate();//本月有多少天
+    function makeTable(firstTime, month_all_day) {
+        var table = document.getElementById("table");
+        var tableChildren = table.children[0].children;
+        var trNum = 1, tdNum = firstTime;
+        for (var i = 0; i < month_all_day; i++) {
+            if (!tableChildren[trNum].children[tdNum]) {
+                tdNum = 0;
+                trNum++;
+            }
+
+            tableChildren[trNum].children[tdNum].innerHTML = i + 1;
+            tdNum++;
+        }
+    }
+    makeTable(firstTime, month_all_day);
+</script>
+</html>
